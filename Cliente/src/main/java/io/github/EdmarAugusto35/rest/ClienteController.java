@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/Clientes")
+@CrossOrigin("*")
 public class ClienteController {
 
     private final ClienteRepository clienteRepository;
