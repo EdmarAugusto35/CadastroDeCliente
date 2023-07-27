@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/Clientes")
@@ -26,6 +27,11 @@ public class ClienteController {
     public Cliente salvar(@RequestBody @Valid Cliente cliente){
 
         return clienteRepository.save(cliente);
+    }
+
+    @GetMapping
+    public List<Cliente> obterTodos(){
+        return clienteRepository.findAll();
     }
 
     //Buscar com um id sé não encontrar ele da erro 404
