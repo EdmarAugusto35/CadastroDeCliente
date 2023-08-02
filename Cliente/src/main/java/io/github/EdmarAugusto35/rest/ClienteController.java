@@ -2,6 +2,7 @@ package io.github.EdmarAugusto35.rest;
 
 import io.github.EdmarAugusto35.Model.entity.Cliente;
 import io.github.EdmarAugusto35.Model.repository.ClienteRepository;
+import org.h2.engine.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/Clientes")
@@ -25,7 +27,6 @@ public class ClienteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente salvar(@RequestBody @Valid Cliente cliente){
-
         return clienteRepository.save(cliente);
     }
 
@@ -34,7 +35,7 @@ public class ClienteController {
         return clienteRepository.findAll();
     }
 
-    //Buscar com um id sé não encontrar ele da erro 404
+    //Buscar com um id sé não encontrar ele dá erro 404
     @GetMapping("{id}")
     public Cliente consultarPorId(@PathVariable Integer id){
            return clienteRepository

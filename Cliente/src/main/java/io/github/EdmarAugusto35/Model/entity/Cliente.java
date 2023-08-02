@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.implementation.bind.annotation.DefaultMethod;
 import org.apache.logging.log4j.message.Message;
 import org.hibernate.validator.constraints.br.CPF;
 
