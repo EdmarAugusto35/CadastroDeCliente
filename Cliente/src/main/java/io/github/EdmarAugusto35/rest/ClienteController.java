@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/Clientes")
-@CrossOrigin("*")
 public class ClienteController {
 
     private final ClienteRepository clienteRepository;
